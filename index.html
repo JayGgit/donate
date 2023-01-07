@@ -86,11 +86,11 @@
         <hr style="width: 95%; border-style: solid; border-color: #333333; margin: 2vw;">
         <div class="w3-info">
             <h1>Web-3 Payment Methods</h1>
-            <div class="item eth-wrapper">
+            <div class="item eth-wrapper" id="ethbutton">
                 <h3>ETH - Recommended</h3>
                 <img class="eth" id="eth" src="src/eth.png" height="100vh">
             </div>
-            <div class="item btc-wrapper">
+            <div class="item btc-wrapper" id="btcbutton">
                 <h3>BTC</h3>
                 <img class="btc" id="btc" src="src/btc.png" height="100vh">
             </div>
@@ -111,10 +111,21 @@
         accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     }
 
-    document.getElementById("eth").addEventListener('click', function (event) {
+    document.getElementById("ethbutton").addEventListener('click', function (event) {
         getAccountMetaMask()
-        ethereum.request({method: 'eth_sendTransaction', params:[transactionParam]}).then(txhash => {
-            console.log(txhash);
-        });
+        
+        ethereum.request({
+            method: 'eth_sendTransaction',
+            params: [
+                {
+                    from: accounts[0],
+                    to: '0xe77A345f8405e08Dc599213a5AE028805D19b750',
+                    value: '0x2D6469406D03E',
+                },
+            ],
+        })
+    .then((txHash) => console.log(txHash))
+    .catch((error) => console.error);
+
     });
 </script>
