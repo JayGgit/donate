@@ -109,13 +109,12 @@
 
     async function getAccountMetaMask() {
         accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-        var metaconnect = 1
     }
 
     document.getElementById("ethbutton").addEventListener('click', function (event) {
         getAccountMetaMask()
 
-        if (metaconnect == 1){
+        if (typeof window.ethereum !== 'undefined') {
             var donate = prompt("How much ETH would you like to donate?","0.0008");
             var donate = (Number(donate) * 1000000000000000000)
             var donate = donate.toString(16)
