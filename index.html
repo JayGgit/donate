@@ -109,23 +109,29 @@
 
     async function getAccountMetaMask() {
         accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+        var metaconnect = 1
     }
 
     document.getElementById("ethbutton").addEventListener('click', function (event) {
         getAccountMetaMask()
-        
-        ethereum.request({
-            method: 'eth_sendTransaction',
-            params: [
-                {
-                    from: accounts[0],
-                    to: '0xe77A345f8405e08Dc599213a5AE028805D19b750',
-                    value: '0x2D6469406D03E',
-                },
-            ],
-        })
-    .then((txHash) => console.log(txHash))
-    .catch((error) => console.error);
 
+        if (metaconnect == 1){
+            var donate = prompt("How much ETH would you like to donate?","0.0008");
+            var donate = (Number(donate) * 1000000000000000000)
+            var donate = donate.toString(16)
+
+            ethereum.request({
+                method: 'eth_sendTransaction',
+                params: [
+                    {
+                        from: accounts[0],
+                        to: '0xe77A345f8405e08Dc599213a5AE028805D19b750',
+                        value: ("0x" + donate),
+                    },
+                ],
+            })
+            .then((txHash) => console.log(txHash))
+            .catch((error) => console.error);
+        }
     });
 </script>
