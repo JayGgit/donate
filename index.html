@@ -53,6 +53,15 @@
         width: 31vw;
         background-color: #eeeeee;
     }
+    .disclaimer {
+        text-align: center;
+    }
+    .commandPrompt {
+        position: absolute;
+        top: 1vh;
+        left: 1vw;
+        cursor: pointer;
+    }
 </style>
 
 <body>
@@ -66,14 +75,14 @@
         <div class="w2" id="w2">
             <p>Donate using Web-2 technologies.</p>
             <p>If you can donate using web-3 technology, please do so.</p>
-            <img src="src/paypal.png" height="50vh">
+            <img src="src/paypal.png" height="50vh" alt="Paypal Logo">
         </div>
 
         <div class="w3" id="w3">
             <p>Donate using Web-3 technologies</p>
             <p class="recommended">Recommended</p>
-            <img src="src/btc.png" height="50vh">
-            <img src="src/eth.png" height="50vh">
+            <img src="src/btc.png" height="50vh" alt="Bitcoin Logo">
+            <img src="src/eth.png" height="50vh" alt="ETH Logo">
         </div>
     </div>
 
@@ -88,18 +97,22 @@
             <h1>Web-3 Payment Methods</h1>
             <div class="item eth-wrapper" id="ethbutton">
                 <h3>ETH - Recommended</h3>
-                <img class="eth" id="eth" src="src/eth.png" height="100vh">
+                <img class="eth" id="eth" src="src/eth.png" height="100vh" alt="ETH Logo">
                 <p id="ETHAddress"></p>
                 <p id="ETHAddressReal"></p>
             </div>
             <div class="item btc-wrapper" id="btcbutton">
                 <h3>BTC</h3>
-                <img class="btc" id="btc" src="src/btc.png" height="100vh">
+                <img class="btc" id="btc" src="src/btc.png" height="100vh" alt="Bitcoin Logo">
                 <p id="BTCAddress"></p>
                 <p id="BTCAddressReal"></p>
             </div>
         </div>
     </div>
+    <p class="disclaimer">Refunds not guaranteed. Once you send me money, you may not get it back! Fees apply. Check each service's privacy policy.</p>
+    <a href="https://jayggit.github.io/">
+        <img class="commandPrompt" id="commandPrompt" src="src/terminal.png" alt="Terminal" width="25vw">
+    </a>
 </body>
 
 <script>
