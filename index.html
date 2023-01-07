@@ -105,8 +105,14 @@
         value: '0x2D6469406D03E'
     };
 
+    let accounts = [];
+
+    async function getAccountMetaMask() {
+        accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    }
+
     document.getElementById("eth").addEventListener('click', function (event) {
-        ethereum.request({ method: 'eth_requestAccounts' });
+        getAccountMetaMask()
         ethereum.request({method: 'eth_sendTransaction', params:[transactionParam]}).then(txhash => {
             console.log(txhash);
         });
