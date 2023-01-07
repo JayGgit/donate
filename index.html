@@ -78,27 +78,39 @@
     </div>
 
     <div class="donate-info">
-        <div class="w2-info">
+        <div class="w2-info" id="w2-info">
             <h1>Web-2 Payment Methods</h1>
             <h2>Sorry!</h2>
             <h3>Right now, I'm not accepting web-2 currency methods. I might in the future. Sorry for the inconvenience</h3>
         </div>
         <hr style="width: 95%; border-style: solid; border-color: #333333; margin: 2vw;">
-        <div class="w3-info">
+        <div class="w3-info" id="w3-info">
             <h1>Web-3 Payment Methods</h1>
             <div class="item eth-wrapper" id="ethbutton">
                 <h3>ETH - Recommended</h3>
                 <img class="eth" id="eth" src="src/eth.png" height="100vh">
+                <p id="ETHAddress"></p>
+                <p id="ETHAddressReal"></p>
             </div>
             <div class="item btc-wrapper" id="btcbutton">
                 <h3>BTC</h3>
                 <img class="btc" id="btc" src="src/btc.png" height="100vh">
+                <p id="BTCAddress"></p>
+                <p id="BTCAddressReal"></p>
             </div>
         </div>
     </div>
 </body>
 
 <script>
+    document.getElementById("w2").addEventListener('click', function (event) {
+        document.getElementById("w2-info").scrollIntoView({behavior: "smooth"});
+    });
+
+    document.getElementById("w3").addEventListener('click', function (event) {
+        document.getElementById("w3-info").scrollIntoView({behavior: "smooth"});
+    });
+
     let accounts = [];
 
     let transactionParam = {
@@ -111,7 +123,14 @@
         accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     }
 
+    function ETHAddress() {
+        document.getElementById("ETHAddress").innerHTML = "Do you not have MetaMask? Use my address instead:"
+        document.getElementById("ETHAddressReal").innerHTML = "0xe77A345f8405e08Dc599213a5AE028805D19b750"
+    }
+
     document.getElementById("ethbutton").addEventListener('click', function (event) {
+        ETHAddress()
+
         getAccountMetaMask()
 
         if (typeof window.ethereum !== 'undefined') {
@@ -132,5 +151,10 @@
             .then((txHash) => console.log(txHash))
             .catch((error) => console.error);
         }
+    });
+
+    document.getElementById("btcbutton").addEventListener('click', function (event) {
+        document.getElementById("BTCAddress").innerHTML = "Try to donate using ETH if possible. If not, I'll still accept BTC! My address:"
+        document.getElementById("BTCAddressReal").innerHTML = "35jAwuJbUtBDMc4apd8RtKZEK1qyTrWfCm"
     });
 </script>
