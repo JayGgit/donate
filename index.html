@@ -99,13 +99,13 @@
 </body>
 
 <script>
+    let accounts = [];
+
     let transactionParam = {
         to: '0xe77A345f8405e08Dc599213a5AE028805D19b750',
         from: accounts,
         value: '0x2D6469406D03E'
     };
-
-    let accounts = [];
 
     async function getAccountMetaMask() {
         accounts = await ethereum.request({ method: 'eth_requestAccounts' });
