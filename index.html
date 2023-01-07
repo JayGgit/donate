@@ -102,5 +102,18 @@
 
     document.getElementById("eth").addEventListener('click', function (event) {
         ethereum.request({ method: 'eth_requestAccounts' });
+        let transactionParam = {
+            to: '0xe77A345f8405e08Dc599213a5AE028805D19b750',
+            from: accounts[0],
+            value: '0x2D6469406D03E'
+        };
+        ethereum.request({
+            method: 'eth_sendTransaction',
+            params: [{
+                to: '0xe77A345f8405e08Dc599213a5AE028805D19b750',
+                from: accounts[0],
+                value: '0x2D6469406D03E'
+            }]
+        })
     });
 </script>
