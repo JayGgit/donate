@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="inital-scale=1">
+    <title>Donate to JayG</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .text {
+        text-align: center;
+        margin: 2vw;
+    }
+    .donate-buttons {
+        text-align: center;
+        overflow: hidden;
+    }
+    .w2, .w3 {
+        width: 25vw;
+        border-style: solid;
+        border-color: #333333;
+        border-radius: 3px;
+        padding: 1vw;
+        margin: 1vw;
+        text-align: center;
+        transition: width 0.2s;
+        display: inline-block;
+    }
+    .w2:hover, .w3:hover {
+        width: 26vw;
+        background-color: #eeeeee;
+    }
+    .donate-info {
+        position: absolute;
+        top: 100%;
+        width: 98.7vw;
+        text-align: center;
+    }
+    .item {
+        border-style: solid;
+        border-color: #333333;
+        border-radius: 3px;
+        width: 30vw;
+        padding: 1vw;
+        margin: 1vw;
+        display: inline-block;
+        text-align: center;
+        transition: width 0.2s;
+    }
+    .item:hover {
+        width: 31vw;
+        background-color: #eeeeee;
+    }
+</style>
+
+<body>
+    <div class="text">
+        <h1>I'm JayG</h1>
+        <h2>I make cool internet things.</h2>
+        <h3>Consider donating to me, I would appreciate it!</h3>
+    </div>
+
+    <div class="donate-buttons">
+        <div class="w2" id="w2">
+            <p>Donate using Web-2 technologies.</p>
+            <p>If you can donate using web-3 technology, please do so.</p>
+            <img src="src/paypal.png" height="50vh">
+        </div>
+
+        <div class="w3" id="w3">
+            <p>Donate using Web-3 technologies</p>
+            <p class="recommended">Recommended</p>
+            <img src="src/btc.png" height="50vh">
+            <img src="src/eth.png" height="50vh">
+        </div>
+    </div>
+
+    <div class="donate-info">
+        <div class="w2-info">
+            <h1>Web-2 Payment Methods</h1>
+            <h2>Sorry!</h2>
+            <h3>Right now, I'm not accepting web-2 currency methods. I might in the future. Sorry for the inconvenience</h3>
+        </div>
+        <hr style="width: 95%; border-style: solid; border-color: #333333; margin: 2vw;">
+        <div class="w3-info">
+            <h1>Web-3 Payment Methods</h1>
+            <div class="item eth-wrapper">
+                <h3>ETH - Recommended</h3>
+                <img class="eth" id="eth" src="src/eth.png" height="100vh">
+            </div>
+            <div class="item btc-wrapper">
+                <h3>BTC</h3>
+                <img class="btc" id="btc" src="src/btc.png" height="100vh">
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+    document.getElementById("eth").addEventListener('click', function (event) {
+        ethereum.request({ method: 'eth_requestAccounts' });
+    });
+</script>
